@@ -7,6 +7,10 @@ let valorbebida;
 let valorsobremesa;
 let valortotal;
 
+let valorp;
+let valorb;
+let valors;
+
 
 
 // PRATO
@@ -20,8 +24,7 @@ function selecionarprato(opcprato){
   }  
   opcprato.classList.add("pratoselecionado");
 
-  valorprato = Number(document.querySelector('.pratoselecionado spam').innerText)
-
+  valorprato = Number(document.querySelector('.pratoselecionado spam').innerText)  
 
   check();  
 }
@@ -42,6 +45,7 @@ function selecionarbebida(opcbebida){
   
   opcbebida.classList.add("bebidaselecionada");
   valorbebida = Number(document.querySelector('.bebidaselecionada spam').innerText)
+//   valorb = Number(valorbebida)
 
   check();}
 
@@ -62,6 +66,7 @@ function selecionarsobremesa(opcsobremesa){
   
   opcsobremesa.classList.add("sobremesaselecionada");
   valorsobremesa = Number(document.querySelector('.sobremesaselecionada spam').innerText)
+//   valors = Number(valorsobremesa)
 
   check();
 }
@@ -77,12 +82,14 @@ function check(){
     }
 
     
+
+    
 }
 
 
-function total(valorprato, valorbebida, valorsobremesa){
-    const valortotal = valorprato + valorbebida + valorsobremesa
-}
+// function total(valorprato, valorbebida, valorsobremesa){
+//     const valortotal = valorprato + valorbebida + valorsobremesa
+// }
 // function total(valortotal){
 //     valortotal = valorprato + valorbebida + valorsobremesa
 // }
@@ -94,14 +101,14 @@ function total(valorprato, valorbebida, valorsobremesa){
 function mostrarjanela(){
     document.querySelector(".janela").classList.remove("escondido"); 
 
-        
+        valortotal = valorprato + valorbebida + valorsobremesa;   
         document.querySelector(
           ".mensagemconfirmar"
         ).innerText = `
-        ${document.querySelector(".pratoselecionado h1").innerText} ${document.querySelector(".pratoselecionado spam").innerText} 
-        ${document.querySelector(".bebidaselecionada h1").innerText} ${document.querySelector(".bebidaselecionada spam").innerText}
-        ${document.querySelector(".sobremesaselecionada h1").innerText} ${document.querySelector('.sobremesaselecionada spam').innerText}
-        Total: R$ `     
+        ${document.querySelector(".pratoselecionado h1").innerText} ${encodeURIComponent(valorprato)} 
+        ${document.querySelector(".bebidaselecionada h1").innerText} ${encodeURIComponent(valorbebida)}
+        ${document.querySelector(".sobremesaselecionada h1").innerText} ${encodeURIComponent(valorsobremesa)}
+        Total: R$ ${encodeURIComponent(valortotal)}`     
         
       }
 
@@ -131,7 +138,7 @@ const msg = `Olá, gostaria de fazer o pedido:
 - Prato: ${document.querySelector(".pratoselecionado h1").innerText} 
 - Bebida: ${document.querySelector(".bebidaselecionada h1").innerText}
 - Sobremesa: ${document.querySelector(".sobremesaselecionada h1").innerText}
-Total: R$`
+Total: R$${encodeURIComponent(valortotal)}`
 
 location.href = `https://wa.me/${encodeURIComponent(number)}?text=${encodeURIComponent(msg)}`;
 
