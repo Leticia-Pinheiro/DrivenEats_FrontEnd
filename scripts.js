@@ -108,7 +108,7 @@ function mostrarjanela(){
         ${document.querySelector(".pratoselecionado h1").innerText} ${encodeURIComponent(valorprato)} 
         ${document.querySelector(".bebidaselecionada h1").innerText} ${encodeURIComponent(valorbebida)}
         ${document.querySelector(".sobremesaselecionada h1").innerText} ${encodeURIComponent(valorsobremesa)}
-        Total: R$ ${encodeURIComponent(valortotal)}`     
+        Total: R$ ${encodeURIComponent(valortotal.toFixed(2))}`     
         
       }
 
@@ -138,7 +138,7 @@ const msg = `Olá, gostaria de fazer o pedido:
 - Prato: ${document.querySelector(".pratoselecionado h1").innerText} 
 - Bebida: ${document.querySelector(".bebidaselecionada h1").innerText}
 - Sobremesa: ${document.querySelector(".sobremesaselecionada h1").innerText}
-Total: R$${encodeURIComponent(valortotal)}`
+Total: R$${encodeURIComponent(valortotal.toFixed(2))}`
 
 location.href = `https://wa.me/${encodeURIComponent(number)}?text=${encodeURIComponent(msg)}`;
 
