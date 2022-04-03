@@ -6,6 +6,10 @@
 
 .container{
     width: 100%;
+    display: flex;
+    flex-direction: column;    
+    justify-content: center;
+    
 }
 
 .container > h1{
@@ -186,6 +190,46 @@
     height: 61px;
     border-radius: 50px;
     
+}
+
+.janela{
+
+    color: #fff;
+    font-size: 22px;
+    font-family: 'Roboto';
+    line-height: 26px;
+
+    width: 377px;
+    height: 353px;
+    background-color: #50D074;
+    border-radius: 9px;
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position:fixed;
+    left: 5%;
+    bottom: 30%
+
+    
+}
+
+.janela .certo{
+    width: 329px;
+    height: 52px;
+    border-radius: 100px;
+    background-color: #FFFFFF;
+    color: #50D074;
+}
+
+.janela .cancelar{
+    width: 329px;
+    height: 52px;
+    border-radius: 100px;
+    background-color: #50D074;
+    color: #FFFFFF;
 }
 
 

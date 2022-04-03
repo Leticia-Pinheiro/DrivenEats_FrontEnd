@@ -173,14 +173,29 @@
             </div>
         </div>
 
+        
+
 
 
 <!-- BOTÃO -->
 
         <div class="final">
             <button class="botao1" onclick="finalizar()">Selecione os 3 itens <p>para fechar o pedido</p></button>
-            <button class="botao2 escondido" onclick="wpp()">Fechar Pedido</button>
+            <button class="botao2 escondido" onclick="mostrarjanela()">Fechar Pedido</button>
         </div>
+
+        <div class="janela escondido">
+            <h1>Confirme seu pedido</h1>
+            <p class="mensagemconfirmar"></p>
+            <button class="certo" onclick="wpp()">Tudo certo, pode pedir!</button>
+            <button class="cancelar" onclick="voltar()">Cancelar</button>
+        </div>
+
+
+
+
+
+        
     </div>
     
 

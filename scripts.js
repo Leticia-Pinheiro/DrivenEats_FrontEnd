@@ -2,9 +2,11 @@ let prato;
 let bebida;
 let sobremesa;
 
-let valorp;
+let valorprato;
 let valorbebida;
 let valorsobremesa;
+let valortotal;
+
 
 
 // PRATO
@@ -18,15 +20,8 @@ function selecionarprato(opcprato){
   }  
   opcprato.classList.add("pratoselecionado");
 
-  valorp = document.getElementsByName('.pratoselecionado spam')
-//   valornovo = parseInt(valorp)
-  console.log(valorp)
-  
-//   valorp = document.getElementById('.pratoselecionado valorprato').innerText
-//   console.log('valor não vertido ' + valorp)
-//   const convert =  parseFloat(valorp.toFixed(2))
+  valorprato = Number(document.querySelector('.pratoselecionado spam').innerText)
 
-//   console.log(convert)
 
   check();  
 }
@@ -46,8 +41,9 @@ function selecionarbebida(opcbebida){
   }
   
   opcbebida.classList.add("bebidaselecionada");
-  check();
-}
+  valorbebida = Number(document.querySelector('.bebidaselecionada spam').innerText)
+
+  check();}
 
 
 
@@ -65,12 +61,10 @@ function selecionarsobremesa(opcsobremesa){
   }
   
   opcsobremesa.classList.add("sobremesaselecionada");
+  valorsobremesa = Number(document.querySelector('.sobremesaselecionada spam').innerText)
+
   check();
 }
-
-
-
-
 
 
 // CHECK
@@ -79,16 +73,38 @@ function check(){
     
     if (prato && bebida && sobremesa) {
         document.querySelector(".botao1").classList.add("escondido");
-        document.querySelector(".botao2").classList.remove("escondido");  
+        document.querySelector(".botao2").classList.remove("escondido");                  
     }
+
+    
 }
 
 
-
+function total(valorprato, valorbebida, valorsobremesa){
+    const valortotal = valorprato + valorbebida + valorsobremesa
+}
+// function total(valortotal){
+//     valortotal = valorprato + valorbebida + valorsobremesa
+// }
 
 
 
 // FINALIZAR
+
+function mostrarjanela(){
+    document.querySelector(".janela").classList.remove("escondido"); 
+
+        
+        document.querySelector(
+          ".mensagemconfirmar"
+        ).innerText = `
+        ${document.querySelector(".pratoselecionado h1").innerText} ${document.querySelector(".pratoselecionado spam").innerText} 
+        ${document.querySelector(".bebidaselecionada h1").innerText} ${document.querySelector(".bebidaselecionada spam").innerText}
+        ${document.querySelector(".sobremesaselecionada h1").innerText} ${document.querySelector('.sobremesaselecionada spam').innerText}
+        Total: R$ `     
+        
+      }
+
 
 function finalizar(){
     
@@ -99,27 +115,31 @@ function finalizar(){
       } else {
         alert("Você deve marcar todas as opções");
       }
+      
 }
-
-
 
 
 
 
 // MENSAGEM WPP
 
-function wpp(){
-    
+function wpp(){    
+
 const number = '5512982867392'
 
 const msg = `Olá, gostaria de fazer o pedido:
 - Prato: ${document.querySelector(".pratoselecionado h1").innerText} 
 - Bebida: ${document.querySelector(".bebidaselecionada h1").innerText}
 - Sobremesa: ${document.querySelector(".sobremesaselecionada h1").innerText}
-Total: R$ `
+Total: R$`
 
 location.href = `https://wa.me/${encodeURIComponent(number)}?text=${encodeURIComponent(msg)}`;
 
+}
+
+
+function voltar(){
+    document.querySelector(".janela").classList.add("escondido");
 }
 
 
